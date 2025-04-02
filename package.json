@@ -2,5 +2,8 @@
   "name": "snake-game",
   "version": "1.0.0",
   "description": "双人贪吃蛇游戏",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "serve ."
+  }
 } 

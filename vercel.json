@@ -1,23 +1,26 @@
 {
   "version": 2,
+  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
   "builds": [
     { "src": "*.html", "use": "@vercel/static" },
-    { "src": "*.js", "use": "@vercel/static" },
     { "src": "*.css", "use": "@vercel/static" },
+    { "src": "*.js", "use": "@vercel/static" },
     { "src": "sounds/*", "use": "@vercel/static" }
   ],
   "routes": [
     {
       "src": "/sounds/(.*)",
-      "headers": { "cache-control": "public, max-age=31536000, immutable" },
-      "continue": true
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
     },
     {
-      "src": "/(.*)\\.(?:js|css|html)$",
-      "headers": { "cache-control": "public, max-age=31536000, immutable" },
-      "continue": true
-    },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
+      "src": "/(.*)\\.(?:js|css|mp3|html)$",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    }
   ]
 } 
